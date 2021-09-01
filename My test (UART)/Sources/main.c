@@ -24,12 +24,16 @@ int main() {
   CLK_CNTR->KEY = _KEY_;
   CLK_CNTR->PER0_CLK |= (1<<13)|(1<<14)|(1<<15)|(1<<16)|(1<<17);   //port A,B,C,D,E clock enable
 
+	 /* PE[19,18]-out1 EN_PWR_DV*/
 	PORTE->KEY = _KEY_;
 	PORTE->SANALOG = 0xFFFFFFFF;
-	PORTE->CFUNC[2] = 0x0000ff00;
+	PORTE->CFUNC[2] = 0x0000ff00; //empty function
+	PORTE->SOE |= (1<<19)|(1<<18); //enable ports as output
 	//PORTE->SPULLUP |= (1<<19)|(1<<18);
-	PORTE->SPWR[1] = 0xf0;
-	PORTE->SOE |= (1<<19)|(1<<18);
+	PORTE->SPWR[1] = 0xf0; //enable drivers (fast front 10ns for all ports)
+	
+	
+	
 	
 	
 	
