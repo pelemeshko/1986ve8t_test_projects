@@ -1,57 +1,0 @@
-Dependencies for Project 'LED blinking', Target 'Target 1': (DO NOT MODIFY !)
-CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
-F (.\user\main.c)(0x612C5FAD)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I .\user-I.\RTE\Device\MDR32F8-I.\RTE\_Target_1-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_RTE_ -DUSE_MDR32F8-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (.\RTE\Device\MDR32F8\mdr32f8_config.h)(0x5F321BF0)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_lib.h)(0x5F321BF0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AE02A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
-I (.\RTE\_Target_1\RTE_Components.h)(0x6128B7E7)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_port.h)(0x5F321BF0)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc\MDR1986VE8T.h)(0x5F44D330)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
-F (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\spec.c)(0x5F321BF0)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I .\user-I.\RTE\Device\MDR32F8-I.\RTE\_Target_1-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_RTE_ -DUSE_MDR32F8-o .\objects\spec.o --omf_browse .\objects\spec.crf --depend .\objects\spec.d)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\spec.h)(0x5F321BF0)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc\MDR1986VE8T.h)(0x5F44D330)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
-F (RTE\Device\MDR32F8\mdr32f8_config.h)(0x5F321BF0)()
-F (RTE\Device\MDR32F8\startup_1986ve8t.s)(0x5F321BF0)(--cpu Cortex-M4 -g --apcs=interwork -I.\RTE\Device\MDR32F8-I.\RTE\_Target_1-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc"-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 529" --pd "_RTE_ SETA 1" --pd "USE_MDR32F8 SETA 1"--list .\listings\startup_1986ve8t.lst --xref -o .\objects\startup_1986ve8t.o --depend .\objects\startup_1986ve8t.d)
-F (RTE\Device\MDR32F8\system_1986ve8t.c)(0x5F321BF0)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I .\user-I.\RTE\Device\MDR32F8-I.\RTE\_Target_1-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_RTE_ -DUSE_MDR32F8-o .\objects\system_1986ve8t.o --omf_browse .\objects\system_1986ve8t.crf --depend .\objects\system_1986ve8t.d)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc\MDR1986VE8T.h)(0x5F44D330)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
-I (RTE\Device\MDR32F8\mdr32f8_config.h)(0x5F321BF0)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_lib.h)(0x5F321BF0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AE02A)
-F (RTE\Device\MDR32F8\system_1986ve8t.h)(0x5F321BF0)()
-F (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_clkctrl.c)(0x5F321BF0)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I .\user-I.\RTE\Device\MDR32F8-I.\RTE\_Target_1-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_RTE_ -DUSE_MDR32F8-o .\objects\mdr32f8_clkctrl.o --omf_browse .\objects\mdr32f8_clkctrl.crf --depend .\objects\mdr32f8_clkctrl.d)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_clkctrl.h)(0x5F321BF0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc\MDR1986VE8T.h)(0x5F44D330)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
-I (.\RTE\Device\MDR32F8\mdr32f8_config.h)(0x5F321BF0)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_lib.h)(0x5F321BF0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AE02A)
-F (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_port.c)(0x5F321BF0)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I .\user-I.\RTE\Device\MDR32F8-I.\RTE\_Target_1-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc"-I"C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_RTE_ -DUSE_MDR32F8-o .\objects\mdr32f8_port.o --omf_browse .\objects\mdr32f8_port.crf --depend .\objects\mdr32f8_port.d)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_port.h)(0x5F321BF0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc\MDR1986VE8T.h)(0x5F44D330)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
-I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
-I (.\RTE\Device\MDR32F8\mdr32f8_config.h)(0x5F321BF0)
-I (C:\Users\Pelemeshko Anatolii\AppData\Local\Arm\Packs\Keil\MDR1986VE8T\0.4.1\Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_lib.h)(0x5F321BF0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AE02A)
