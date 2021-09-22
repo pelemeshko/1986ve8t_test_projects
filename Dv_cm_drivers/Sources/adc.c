@@ -47,7 +47,7 @@ void ADC_Init() {
   /**/
   for(i=0; i<7; i++) ADCDataCnt[i] = 0;
   ADC0->CONFIG2 = 0x00009004;  //enable interrupt
-  ADC0->CHSEL0 =  0x0000007F;
+  ADC0->CHSEL0 =  0x0000007F;  //ch0-ch13
   ADC0->FIFOEN0 = 0x0000007F;
   ADC0->CONFIG0 = 0x00000025;  //enable ADC0, SELMODE=1, continues mode
   NVIC_EnableIRQ(IRQn_ADC0);

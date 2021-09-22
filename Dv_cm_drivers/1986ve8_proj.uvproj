@@ -451,6 +451,11 @@
               <FileType>1</FileType>
               <FilePath>.\Sources\adc.c</FilePath>
             </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -915,6 +920,11 @@
               <FileType>1</FileType>
               <FilePath>.\Sources\adc.c</FilePath>
             </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1378,6 +1388,11 @@
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Sources\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer.c</FilePath>
             </File>
           </Files>
         </Group>
