@@ -35,6 +35,8 @@ int main() {
 
 
 while(1) {
+		sprintf((char*)Buff, "ready\n\r");
+//		UART0_SendPacket(Buff, strlen((char*)Buff), 0);
     WDRST;
     if(UART0_GetPacket(Buff, &leng)) {
       if(Buff[0] == 'A') {
@@ -54,12 +56,14 @@ while(1) {
 			else if(Buff[0] == 'T') {
 				if(Buff[1] == '0'){
 					MDR_TMR3->CNTRL = (0<<0); //Timer is disable
+					sprintf((char*)Buff, "PWM is off\n\r");
+					UART0_SendPacket(Buff, strlen((char*)Buff), 0);
 				}
 				else if(Buff[1] == '1')
 					MDR_TMR3->CNTRL = (1<<0); //Timer is enable
+					sprintf((char*)Buff, "PWM is off\n\r");
+					UART0_SendPacket(Buff, strlen((char*)Buff), 0);
         }
 			}
     }
 }
-
-
