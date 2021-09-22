@@ -15,15 +15,27 @@ void ADC_Init() {
   // PC[12]  ADC6    ch4
   // PC[13]  ADC7    ch5
   // PC[14]  ADC8    ch6
+	// PC[15]  ADC9    ch7
+	// PC[16]  ADC10   ch8	
+	// PC[17]  ADC11   ch9
+	// PC[18]  ADC12   ch10	
+	// PC[19]  ADC13   ch11
+	// PC[20]  ADC14   ch12
+	// PC[21]  ADC15   ch13
+	
   int i, sm;
   CLK_CNTR->KEY = _KEY_;
   CLK_CNTR->PER1_CLK |= (1<<23);  //clock ADC0
+	
   ADC0->KEY = _KEY_;
-  ADC0->CONFIG1 = (255<<12)|(511<<3);  //вот такая хренотень
+  ADC0->CONFIG1 = (255<<12)|(511<<3);  //19-12: pause before transition, 11-3: charging time in cycles
+	
+	
   /* калибровка */
-  ADC0->FIFOEN1 = 0xF0000000;
+  ADC0->FIFOEN1 = 0xF0000000;					//Note! for question
   ADC0->CONFIG0 = 1;  //enable ADC0
-  sm = 0;
+  
+	sm = 0;
   for(i=0; i<4; i++) {
     ADC0->CONTROL = (60 + i)<<8 | 1;
     while((ADC0->STATUS & 1)==0);

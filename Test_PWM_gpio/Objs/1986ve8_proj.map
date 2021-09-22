@@ -128,14 +128,14 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
-    Removing sysinit.o(.text), (548 bytes).
+    Removing sysinit.o(.text), (588 bytes).
     Removing main.o(.bss), (256 bytes).
     Removing eerom.o(.text), (520 bytes).
     Removing eerom.o(.bss), (20 bytes).
     Removing wdt.o(.text), (118 bytes).
     Removing core_cm4.o(.emb_text), (32 bytes).
 
-6 unused section(s) (total 1494 bytes) removed from the image.
+6 unused section(s) (total 1534 bytes) removed from the image.
 
 ==============================================================================
 

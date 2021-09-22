@@ -8,48 +8,30 @@
 #include "wdt.h"
 #include "uarts.h"
 
+
 #define MKO_Id      22
-#define Timer3_IRQn (IRQn_Type)108
+
 
 uint8_t Buff[256];
 extern uint16_t ADCData[];
 
-void Delay(int waitTicks);
 
 int main() {
-//  uint8_t leng;
-//  uint16_t adc_data[7];
+	uint8_t leng;
+  uint16_t adc_data[7];
 
-	  /*---------- System clock, PLL0 ----------*/
-  CLK_CNTR->KEY = _KEY_;
-  CLK_CNTR->HSE0_CLK = (1<<27)|(1<<28); // Enable HSE0 gen
-  while((CLK_CNTR->HSE0_STAT & (1 << 20)) == 0); //wait HSE0
-  CLK_CNTR->PLL0_CLK = (2<<29)|(1<<28)|(1<<27)|(8<<8)|(1<<0);  //PLL0 On, Fout = 10*8/2 = 40MHz
-  while((CLK_CNTR->PLL0_CLK & (1<<28)) == 0); //wait PLL ready
-  CLK_CNTR->MAX_CLK = 8;  //MAX_CLOCK = PLL0 = 40 MHz
-  CLK_CNTR->CPU_CLK = 0;  //Core clock: MAX_CLOCK
 	
-  /*-------------------- Ports Init --------------------------*/
-  CLK_CNTR->KEY = _KEY_;
-  CLK_CNTR->PER0_CLK |= (1<<13)|(1<<14)|(1<<15)|(1<<16)|(1<<17)|(1<<26);  //port A,B,C,D,E,timer3 clock enable
-	CLK_CNTR->TIM3_CLK = (1<<16)|(39); ///clocking is enablede and equal to CoreClk
+  System_Init();
+	UART0_Init();
 	
-	//GPIO setting
-	PORTE->KEY = _KEY_;
-	PORTE->SANALOG = 0xFFFFFFFF;
-	PORTE->CFUNC[2] = 0x0000FFFF;
-  PORTE->SFUNC[2] = 0x00008888; // function 8
-	PORTE->SPWR[1] = 0xff; //enable drivers (fast front 10ns for all ports)
-
-	//Setting the timer function
+		//Setting the timer function
 	MDR_TMR3->CNT = 0;
 	MDR_TMR3->PSG = 0;
-	MDR_TMR3->ARR = 100000;  //frequency = 100 Hz
+	MDR_TMR3->ARR = 5000000;  //frequency = 0,2 Hz
 	MDR_TMR3->CCR1 = 50000;	//PWM = 50 %
-	MDR_TMR3->CCR2 = 8000;	//PWM = 8 %
-	MDR_TMR3->CCR3 = 50000;	//PWM = 50 %
+	MDR_TMR3->CCR2 = 80000;	//PWM = 80 %
+	MDR_TMR3->CCR3 = 5000;	//PWM = 50 %
 	
-
 
 	MDR_TMR3->CH1_CNTRL = (7<<9);
 	MDR_TMR3->CH1_CNTRL1 = (1<<8)|(2<<10); //PE19
@@ -60,16 +42,41 @@ int main() {
 	MDR_TMR3->CH3_CNTRL = (7<<9);
 	MDR_TMR3->CH3_CNTRL1 = (1<<0)|(2<<2); //PE16
 	
-
-	
-
 	MDR_TMR3->CNTRL = (1<<0); //Timer is enable
+	
+	sprintf((char*)Buff, "START\n\r");
+  UART0_SendPacket(Buff, strlen((char*)Buff), 0);
 
 	//MDR_TMR3->STATUS = 0;
 	//NVIC_EnableIRQ(Timer3_IRQn);
 
-	while(1) {
 
-	}
-
+while(1) {
+    WDRST;
+    if(UART0_GetPacket(Buff, &leng)) {
+      if(Buff[0] == 'A') {
+        NVIC_DisableIRQ(IRQn_ADC0);
+        memcpy(adc_data, ADCData, sizeof(adc_data));
+        NVIC_EnableIRQ(IRQn_ADC0);
+        sprintf((char*)Buff, "%4d %4d %4d %4d %4d %4d %4d\n\r", adc_data[0], adc_data[1], adc_data[2], adc_data[3], adc_data[4], adc_data[5], adc_data[6]);
+        UART0_SendPacket(Buff, strlen((char*)Buff), 0);
+        }
+      else if(Buff[0] == 'B') {
+        sprintf((char*)Buff, "%X\n\r", EXT_BUS_CNTR->RGN0_CNTRL);
+        UART0_SendPacket(Buff, strlen((char*)Buff), 0);
+        }
+      else if(Buff[0] == 'R') {
+        PORTE->SRXTX = 0x10000;
+        }
+			else if(Buff[0] == 'T') {
+				if(Buff[1] == '0'){
+					MDR_TMR3->CNTRL = (0<<0); //Timer is disable
+				}
+				else if(Buff[1] == '1')
+					MDR_TMR3->CNTRL = (1<<0); //Timer is enable
+        }
+			}
+    }
 }
+
+

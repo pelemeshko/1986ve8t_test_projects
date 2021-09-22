@@ -1,6 +1,6 @@
 Dependencies for Project '1986ve8_proj', Target 'Target (IntRAM)': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
-F (.\Sources\sysinit.c)(0x612E1FFC)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\sysinit.o --omf_browse .\objs\sysinit.crf --depend .\objs\sysinit.d)
+F (.\Sources\sysinit.c)(0x613309C5)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\sysinit.o --omf_browse .\objs\sysinit.crf --depend .\objs\sysinit.d)
 I (Sources\1986ve8_lib/cm4ikmcu.h)(0x612C7DF0)
 I (Sources\1986ve8_lib/core_cm4.h)(0x612C7DF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)

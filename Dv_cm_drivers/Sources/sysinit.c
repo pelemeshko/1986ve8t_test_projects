@@ -11,9 +11,9 @@ extern uint32_t __Vectors;
 
 void System_Init() {
   *((uint32_t*)0xE000ED08) = (uint32_t)&__Vectors;
-
+	//	battery memory registers
   BKP->KEY = _KEY_;
-  BKP->REG_60_TMR0 |= 1<<28; // diasable POR
+  BKP->REG_60_TMR0 |= 1<<28; // diasable POR //Power overload is permitted
   BKP->REG_60_TMR1 |= 1<<28; //
   BKP->REG_60_TMR2 |= 1<<28; //
     
@@ -26,62 +26,69 @@ void System_Init() {
 
   /*-------------------- Ports Init --------------------------*/
   CLK_CNTR->KEY = _KEY_;
-  CLK_CNTR->PER0_CLK |= (1<<13)|(1<<14)|(1<<15)|(1<<16)|(1<<17);   //port A,B,C,D,E clock enable
-
+  CLK_CNTR->PER0_CLK |= (1<<13)|(1<<14)|(1<<15)|(1<<16)|(1<<17)|(1<<26);  //port A,B,C,D,E,timer3 clock enable
+	CLK_CNTR->TIM3_CLK = (1<<16)|(39); ///clocking is enablede and equal to CoreClk
+	
   /* PA[29,28,26,25,24,23,21,20]-MIL0 */
   PORTA->KEY = _KEY_;
   PORTA->SANALOG =   0xFFFFFFFF;
+	PORTA->CFUNC[3]  = 0x00FF0FFF; //PA 29,28,26,25,24
   PORTA->SFUNC[3] =  0x00CC0CCC;
-  PORTA->SFUNC[2] =  0xC0CC0000;
-  PORTA->SPWR[1] =   0x0A2A8A00;   //100ns
+  PORTA->CFUNC[2] =  0xF0FF0000;	//PA 23,21,20
+	PORTA->SFUNC[2] =  0xC0CC0000; 
+  PORTA->SPWR[1] =   0x003C0F00; //10ns
   PORTA->SPULLDOWN = 0xFFFFFFFF;
 
-  /* PB[31,29,28]-MIL1; PB[26,25]-UART1; PB[19,18]-out1 TM; PB[17]-out1 MKADR; PB[16,15]-UART0; PB[14:9]-inpu MKADR; PB[0]-inpu ID */
-  PORTB->KEY = _KEY_;
+	/* PB[10,9,3,2,1,0]-MPI_ADDDR; PB[16,15]-UART0; */
+	PORTB->KEY = _KEY_;
   PORTB->SANALOG =   0xFFFFFFFF;
-  PORTB->SFUNC[3] =  0xD0DD0550;
+	PORTB->CFUNC[0]  = 0x0000FFFF;	// PB[4,3,2,1]
+  PORTB->SFUNC[0]  = 0x00000000;
+	PORTB->CFUNC[1]  = 0xF0000FF0;	// PB[15,10,9]
+  PORTB->SFUNC[1]  = 0x50000000;
+	PORTB->CFUNC[2]  = 0x0000000F;	// PB[16]
   PORTB->SFUNC[2] =  0x00000005;
-  PORTB->SFUNC[1] =  0x50000000;
-  PORTB->SRXTX =     0x000E0000;
+	PORTB->CFUNC[3]  = 0x00000000;
+  PORTB->SFUNC[3] =  0x00000000;
   PORTB->SOE =       0x000E0000;
-  PORTB->SPWR[1] =   0x8A140055;
-  PORTB->SPWR[0] =   0x40000000;
-  PORTB->SPULLUP =   0x00007F01;
-  PORTB->SPULLDOWN = 0x49F000FE;
+	PORTB->SPWR[1] =   0x00000002;	//100ns
+  PORTB->SPWR[0] =   0x80000000;	//100ns
+	PORTB->SPULLDOWN = 0x00000000;
+	PORTB->SPULLUP =   0x0001860F;
+	PORTB->SPD       = 0x00000000;
+  	
 
-  /* PC[31:30]-A[1:0]; PC[20:8]-ADC; PC[0]-MIL1 */
+  /* PC[31:30]-A[1:0]; PC[21:8]-ADC */
   PORTC->KEY = _KEY_;
-  PORTC->SANALOG =   0xFFE000FF;
+  PORTC->SANALOG =   0xFFC000FF;
+  PORTC->CANALOG =   0x003FFF00;
+	PORTC->CFUNC[3] =  0xFF000000; // PC[31,30]
   PORTC->SFUNC[3] =  0x22000000;
-  PORTC->SFUNC[0] =  0x0000000D;
-  PORTC->SPWR[1] =   0xF0000000;
-  PORTC->SPWR[0] =   0x00000002;
-  PORTC->SPULLDOWN = 0xFFE000FE;
+	PORTC->CFUNC[0] =  0xFFFFFFFF; // PC[7-0]
+  PORTC->SFUNC[0] =  0x00000000;
+  PORTC->SPULLDOWN = 0x3FC000FF;
 
-  /* PD[31:30]-D[1:0]; PD[24:23]-~WE,~OE; PD[19]-~CS;  PD[18:15]-out1 ~CS[4:1]; PD[12:0]-A[14:2] */  
+  /* PD[31:30]-D[1:0]; PD[24:23]-~WE,~OE; PD[19]-~CS0;  PD[20]-~CS1; PD[13:0]-A[15:2] */  
   PORTD->KEY = _KEY_;
   PORTD->SANALOG =   0xFFFFFFFF;
-  PORTD->SFUNC[3] =  0x22000002;
-  PORTD->SFUNC[2] =  0x20002000;
-  PORTD->SFUNC[1] =  0x00022222;
-  PORTD->SFUNC[0] =  0x22222222;
-  PORTD->SRXTX =     0x00078000;
-  PORTD->SOE =       0x00078000;
-  PORTD->SPWR[1] =   0xF003C0EA;
-  PORTD->SPWR[0] =   0xC3FFFFFF;
-  PORTD->SPULLDOWN = 0x3E706000;
+  PORTD->SFUNC[2] =  0x02202000;
+  PORTD->SFUNC[3] =  0x00000002;
+  PORTD->SPWR[0] =   0x3FFFFFFF;
+  PORTD->SPWR[1] =   0xF003FCC0;
+  PORTD->SPULLDOWN = 0x3E178000;
 
-  /* PE[22,20,18:12]-outod1; PE[23,21,19]-out0; PE[10,8,7]-SPI; PE[5:0]-D[7:2]*/
+/*PE[5:0]-D[7:2];  PE[16:19]-PWM; */
   PORTE->KEY = _KEY_;
   PORTE->SANALOG =   0xFFFFFFFF;
-  PORTE->SFUNC[1] =  0x00000606;
-  PORTE->SFUNC[0] =  0x60222222;
-  PORTE->SRXTX =     0x0057F000;
-  PORTE->SPD =       0x0057F000;
-  PORTE->SOE =       0x00FFF000;
-  PORTE->SPWR[1] =   0x00005555;
-  PORTE->SPWR[0] =   0x55028FFF;
-  PORTE->SPULLDOWN = 0xFF000E40;
+  PORTE->CFUNC[0] =  0xFF000000;
+  PORTE->SFUNC[0] =  0x00000000;
+  PORTE->CFUNC[2] =  0x0000FFFF;
+  PORTE->SFUNC[2] =  0x00008888; //PWM PE[16:19]
+	PORTE->SPWR[0]  =  0x00005FFF;
+  PORTE->SPWR[1]  =  0x000000FF;
+  //PORTE->SPD      =  0x00020000;
+	
+	
 
   /*------------ enable regions -----------*/
   EXT_BUS_CNTR->KEY = _KEY_;
