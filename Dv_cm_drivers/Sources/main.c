@@ -7,6 +7,8 @@
 #include "adc.h"
 #include "wdt.h"
 #include "uarts.h"
+#include "timer.h"
+
 
 
 #define MKO_Id      22
@@ -23,26 +25,7 @@ int main() {
 	
   System_Init();
 	UART0_Init();
-	
-		//Setting the timer function
-	MDR_TMR3->CNT = 0;
-	MDR_TMR3->PSG = 0;
-	MDR_TMR3->ARR = 5000000;  //frequency = 0,2 Hz
-	MDR_TMR3->CCR1 = 50000;	//PWM = 50 %
-	MDR_TMR3->CCR2 = 80000;	//PWM = 80 %
-	MDR_TMR3->CCR3 = 5000;	//PWM = 50 %
-	
-
-	MDR_TMR3->CH1_CNTRL = (7<<9);
-	MDR_TMR3->CH1_CNTRL1 = (1<<8)|(2<<10); //PE19
-	
-	MDR_TMR3->CH2_CNTRL = (7<<9);
-	MDR_TMR3->CH2_CNTRL1 = (1<<8)|(2<<10)|(1<<0)|(2<<2); //PE17, PE18
-	
-	MDR_TMR3->CH3_CNTRL = (7<<9);
-	MDR_TMR3->CH3_CNTRL1 = (1<<0)|(2<<2); //PE16
-	
-	MDR_TMR3->CNTRL = (1<<0); //Timer is enable
+	Timers_Init();
 	
 	sprintf((char*)Buff, "START\n\r");
   UART0_SendPacket(Buff, strlen((char*)Buff), 0);

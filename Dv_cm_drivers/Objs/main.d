@@ -10,3 +10,4 @@
 .\objs\main.o: Sources\adc.h
 .\objs\main.o: Sources\wdt.h
 .\objs\main.o: Sources\uarts.h
+.\objs\main.o: Sources\timer.h

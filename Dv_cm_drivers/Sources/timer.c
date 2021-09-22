@@ -1,11 +1,11 @@
-//#include "1986ve8_lib/cm4ikmcu.h"
+#include "1986ve8_lib/cm4ikmcu.h"
 #include "timer.h"
 
-void Timer_Init(void)
+void Timers_Init(void)
 {
 	 /*-------------------- Ports Init --------------------------*/
   CLK_CNTR->KEY = _KEY_;
-  CLK_CNTR->PER0_CLK |= (1<<23)|(1<<26);  enable Timer0, Timer3
+  CLK_CNTR->PER0_CLK |= (1<<23)|(1<<26);  //enable Timer0, Timer3
 	CLK_CNTR->TIM3_CLK = (1<<16)|(39); ///clocking is enable, timer clock freq = 1 MHz
 	//timer0 - reserved
 	//timer3 - are used for PWM (PE16-PE19)
@@ -33,6 +33,6 @@ void Timer_Init(void)
 	MDR_TMR3->CH3_CNTRL1 = (1<<0)|(2<<2); //PE16
 	MDR_TMR3->CNTRL = (1<<0); //Timer is enable
 	
-	//NVIC_EnableIRQ(IRQn_TMR3);
+	NVIC_EnableIRQ(IRQn_TMR3);
 	
 }
