@@ -28,11 +28,7 @@ int main() {
 	Timers_Init();
 	
 	sprintf((char*)Buff, "START\n\r");
-  UART0_SendPacket(Buff, strlen((char*)Buff), 0);
-
-	//MDR_TMR3->STATUS = 0;
-	//NVIC_EnableIRQ(Timer3_IRQn);
-
+	UART0_SendPacket(Buff, strlen((char*)Buff), 0);
 
 while(1) {
 		sprintf((char*)Buff, "ready\n\r");
@@ -55,15 +51,16 @@ while(1) {
         }
 			else if(Buff[0] == 'T') {
 				if(Buff[1] == '0'){
-					MDR_TMR3->CNTRL = (0<<0); //Timer is disable
-					sprintf((char*)Buff, "PWM is off\n\r");
+					Timers_Stop(3);
+					sprintf((char*)Buff, "PWM is disable\n\r");
 					UART0_SendPacket(Buff, strlen((char*)Buff), 0);
 				}
-				else if(Buff[1] == '1')
-					MDR_TMR3->CNTRL = (1<<0); //Timer is enable
-					sprintf((char*)Buff, "PWM is off\n\r");
+				else if(Buff[1] == '1'){
+					Timers_Start(3, 1000000/Buff[2]); //	1Hz(Buff[2]), 255Hz(Buff[255]) 
+					sprintf((char*)Buff, "Time is set\n\r");
 					UART0_SendPacket(Buff, strlen((char*)Buff), 0);
-        }
+				}
 			}
     }
+	}
 }
