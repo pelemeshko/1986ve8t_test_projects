@@ -38,13 +38,13 @@ void Timers_Init(void)
 
 void INT_TMR3_Handler(void) 
 {
-	Timers_Stop(3);
-    /*MDR_TMR3->STATUS = 0x0000;
-    PWM_time += time_ARR;
-    if (PWM_time == 3*1000000) {
+    MDR_TMR3->STATUS = 0x0000;
+    PWM_time += MDR_TMR3->ARR;
+    if (PWM_time == 2*1000000) 
+	{
 		Timers_Stop(3);
 		PWM_time=0;
-	}*/
+	}
 }
 
 void Timers_Start(uint8_t num, uint32_t time)
@@ -73,7 +73,7 @@ void Timers_Stop(uint8_t num)
         case 3:
             NVIC_DisableIRQ(IRQn_TMR3);
             MDR_TMR3->CNTRL = 0x00000000;  //Timer Disable
-            MDR_TMR3->ARR = 0x00;  //time in ms
+           //MDR_TMR3->ARR = 0x00;  //time in ms
             MDR_TMR3->CNT = 0x00000000;  //Initial counter value
             MDR_TMR3->CH2_CNTRL1 = (1<<8)|(0<<10); //PE17(relay switcher1)
             MDR_TMR3->CH3_CNTRL1 = (1<<0)|(0<<2); //PE16(relay switcher2)

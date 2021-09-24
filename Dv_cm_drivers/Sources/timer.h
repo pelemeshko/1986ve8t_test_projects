@@ -6,7 +6,7 @@
 #include <math.h>
 
 
-#define IRQn_TMR3 (IRQn_Type)120
+#define IRQn_TMR3 (IRQn_Type)96
 
 void Timers_Init(void);
 void Timers_Start(uint8_t num, uint32_t time);
