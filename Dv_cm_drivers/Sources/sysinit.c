@@ -2,8 +2,7 @@
 
 
 #ifdef _EXT_MEM_RLS_
-const uint64_t ExtBusCfgCode[] __attribute__ ((at(0x10000400))) = 
-{0x71, 0x71, 0,0,0,0,0,0,0,0};
+const uint64_t ExtBusCfgCode[] __attribute__ ((at(0x10000400))) = {0x71, 0x71, 0,0,0,0,0,0,0,0};
 #endif
 
 

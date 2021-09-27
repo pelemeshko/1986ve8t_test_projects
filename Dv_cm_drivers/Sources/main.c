@@ -20,12 +20,13 @@ extern uint16_t ADCData[];
 
 int main() {
 	uint8_t leng;
-  uint16_t adc_data[7];
+  uint16_t adc_data[14];
 
 	
   System_Init();
 	UART0_Init();
 	Timers_Init();
+	ADC_Init();
 	
 	sprintf((char*)Buff, "START\n\r");
 	UART0_SendPacket(Buff, strlen((char*)Buff), 0);
@@ -39,7 +40,7 @@ while(1) {
         NVIC_DisableIRQ(IRQn_ADC0);
         memcpy(adc_data, ADCData, sizeof(adc_data));
         NVIC_EnableIRQ(IRQn_ADC0);
-        sprintf((char*)Buff, "%4d %4d %4d %4d %4d %4d %4d\n\r", adc_data[0], adc_data[1], adc_data[2], adc_data[3], adc_data[4], adc_data[5], adc_data[6]);
+        sprintf((char*)Buff, "%4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d %4d\n\r", adc_data[0], adc_data[1], adc_data[2], adc_data[3], adc_data[4], adc_data[5], adc_data[6], adc_data[7], adc_data[8], adc_data[9], adc_data[10], adc_data[11], adc_data[12], adc_data[13]);
         UART0_SendPacket(Buff, strlen((char*)Buff), 0);
         }
       else if(Buff[0] == 'B') {
