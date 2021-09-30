@@ -1,10 +1,10 @@
 Dependencies for Project '1986ve8_proj', Target 'Target (IntRAM)': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
-F (.\Sources\sysinit.c)(0x614DAAF7)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\sysinit.o --omf_browse .\objs\sysinit.crf --depend .\objs\sysinit.d)
+F (.\Sources\sysinit.c)(0x61519B4E)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\sysinit.o --omf_browse .\objs\sysinit.crf --depend .\objs\sysinit.d)
 I (Sources\1986ve8_lib/cm4ikmcu.h)(0x612C7DF0)
 I (Sources\1986ve8_lib/core_cm4.h)(0x612C7DF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
-F (.\Sources\main.c)(0x614DB5D5)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\main.o --omf_browse .\objs\main.crf --depend .\objs\main.d)
+F (.\Sources\main.c)(0x61519B5F)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\main.o --omf_browse .\objs\main.crf --depend .\objs\main.d)
 I (Sources\1986ve8_lib/cm4ikmcu.h)(0x612C7DF0)
 I (Sources\1986ve8_lib/core_cm4.h)(0x612C7DF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
@@ -46,6 +46,11 @@ I (Sources\timer.h)(0x614DAC43)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AE028)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AE02A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9AE022)
+F (.\Sources\test.c)(0x61518B59)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\test.o --omf_browse .\objs\test.crf --depend .\objs\test.d)
+I (Sources\1986ve8_lib/cm4ikmcu.h)(0x612C7DF0)
+I (Sources\1986ve8_lib/core_cm4.h)(0x612C7DF0)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
+I (Sources\test.h)(0x6151500D)
 F (.\Sources\1986ve8_lib\core_cm4.c)(0x612C7DF0)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -D_INT_RAM_-o .\objs\core_cm4.o --omf_browse .\objs\core_cm4.crf --depend .\objs\core_cm4.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AE028)
 F (.\Sources\1986ve8_lib\startup_MDR1986VE8T.s)(0x612C7DF0)(--cpu Cortex-M4 --li -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 529"--list .\objs\startup_mdr1986ve8t.lst --xref -o .\objs\startup_mdr1986ve8t.o --depend .\objs\startup_mdr1986ve8t.d)

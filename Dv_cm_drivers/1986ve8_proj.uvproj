@@ -456,6 +456,11 @@
               <FileType>1</FileType>
               <FilePath>.\Sources\timer.c</FilePath>
             </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\test.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -925,6 +930,11 @@
               <FileType>1</FileType>
               <FilePath>.\Sources\timer.c</FilePath>
             </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\test.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1393,6 +1403,11 @@
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Sources\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\test.c</FilePath>
             </File>
           </Files>
         </Group>

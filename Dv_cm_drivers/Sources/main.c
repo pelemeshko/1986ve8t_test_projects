@@ -10,7 +10,6 @@
 #include "timer.h"
 
 
-
 #define MKO_Id      22
 
 
@@ -22,7 +21,6 @@ int main() {
 	uint8_t leng;
   uint16_t adc_data[14];
 
-	
   System_Init();
 	UART0_Init();
 	Timers_Init();
