@@ -40,7 +40,7 @@ void INT_TMR3_Handler(void)
 {
     MDR_TMR3->STATUS = 0x0000;
     PWM_time += MDR_TMR3->ARR;
-    if (PWM_time == 2*1000000) 
+    if (PWM_time == 3*1000000) 
 	{
 		Timers_Stop(3);
 		PWM_time=0;
