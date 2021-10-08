@@ -8,7 +8,7 @@ void Timers_Init(void)
 {
 	 /*-------------------- Ports Init --------------------------*/
 	CLK_CNTR->KEY = _KEY_;
-	CLK_CNTR->PER0_CLK |= (1<<26);  //enable Timer0, Timer3
+	CLK_CNTR->PER0_CLK |= (1<<26)|(1<<26);  //enable Timer1, Timer3
 	CLK_CNTR->TIM3_CLK = (1<<16)|(39); ///clocking is enable, timer clock freq = 1 MHz
 	//timer0 - reserved
 	//timer3 - are used for PWM (PE16, PE17)
@@ -54,8 +54,8 @@ void Timers_Start(uint8_t num, uint32_t time)
         case 3:
             NVIC_DisableIRQ(IRQn_TMR3);
             MDR_TMR3->ARR = time;  // time, min value 1.000.000 = 1 Hz, max 2.000 = 500 Hz
-            MDR_TMR3->CCR2 = 0.2*time;	//PWM = 30 %
-            MDR_TMR3->CCR3 = 0.2*time;	//PWM = 30 %
+            MDR_TMR3->CCR2 = 0.2*time;	//PWM = 20 %
+            MDR_TMR3->CCR3 = 0.2*time;	//PWM = 20 %
             MDR_TMR3->CH2_CNTRL1 = (1<<8)|(2<<10); //PE17(relay switcher1)
             MDR_TMR3->CH3_CNTRL1 = (1<<0)|(2<<2); //PE16(relay switcher2)
             MDR_TMR3->CNT = 0x00000000;  //Initial counter value

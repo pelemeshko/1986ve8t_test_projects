@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 
-
+#define IRQn_TMR1 (IRQn_Type)94
 #define IRQn_TMR3 (IRQn_Type)96
 
 void Timers_Init(void);
