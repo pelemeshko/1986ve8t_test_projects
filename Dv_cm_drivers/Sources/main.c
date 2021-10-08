@@ -34,10 +34,11 @@ while(1) {
     WDRST;
     if(UART0_GetPacket(Buff, &leng)) {
       if(Buff[0] == 'A') {
+				//ADCDataPtr = 0;
 				i=0;
 				n=Buff[1];
 				memcpy(adc_data, ADCData[n], sizeof(adc_data));		
-				while (i<32){
+				while (i<16){
 					memcpy(Buff,&adc_data[i*64], 128);		
 					UART0_SendPacket(Buff, 128, 0);
 					i=i+1;
